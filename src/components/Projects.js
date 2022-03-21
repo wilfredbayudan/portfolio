@@ -1,65 +1,65 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import ProjectItem from "./ProjectItem";
+import menuVueImg from "../assets/images/menuvue.png";
+import wanderListImg from "../assets/images/wanderlist.png";
+import waitlistImg from "../assets/images/waitlist.png";
+import iWanderImg from "../assets/images/iwander.png";
 
 const projectsData = [
   {
     id: 1,
     name: "Menu Vue",
-    created: "Feb 8, 2022",
-    image:
-      "https://jaybayudan.com/static/media/splash.cd384b137b59183a7f88.jpg",
+    created: "Mar 2022",
+    image: menuVueImg,
     description:
-      "Build menus for restaurants and allow them to be easily viewed and shared by scanning a QR code.",
+      "Build menus for restaurants and allow them to be easily accessed by scanning a QR code.",
     githubLink: "https://github.com/wilfredbayudan/menu-vue",
-    videoEmbed: `<div style="padding:60.91% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/684118517?h=d5bbce6bb2&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Menu Vue"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>`,
+    videoEmbed: `https://player.vimeo.com/video/684118517?h=d5bbce6bb2&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"`,
     demoUrl: "https://menu-vue.herokuapp.com",
     isHeroku: true,
   },
   {
     id: 2,
-    name: "Menu Vue",
-    created: "Feb 8, 2022",
-    image:
-      "https://jaybayudan.com/static/media/splash.cd384b137b59183a7f88.jpg",
+    name: "Wanderlist",
+    created: "Jan 2022",
+    image: wanderListImg,
     description:
-      "Build menus for restaurants and allow them to be easily viewed and shared by scanning a QR code.",
-    githubLink: "https://github.com/wilfredbayudan/menu-vue",
-    videoEmbed: `<div style="padding:60.91% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/684118517?h=d5bbce6bb2&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Menu Vue"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>`,
-    demoUrl: "https://menu-vue.herokuapp.com",
+      "Create and share lists of travel destinations. Users may view bucketlists, interact with them through likes and comments, or create and share their own.",
+    githubLink: "https://github.com/wilfredbayudan/wanderlist-server",
+    videoEmbed: `https://player.vimeo.com/video/661057433?h=8103f1c499&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`,
+    demoUrl: "https://wanderlist.jaybayudan.com",
     isHeroku: true,
   },
   {
     id: 3,
-    name: "Menu Vue",
-    created: "Feb 8, 2022",
-    image:
-      "https://jaybayudan.com/static/media/splash.cd384b137b59183a7f88.jpg",
+    name: "Waitlist Integration",
+    created: "Oct 2021",
+    image: waitlistImg,
     description:
-      "Build menus for restaurants and allow them to be easily viewed and shared by scanning a QR code.",
-    githubLink: "https://github.com/wilfredbayudan/menu-vue",
-    videoEmbed: `<div style="padding:60.91% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/684118517?h=d5bbce6bb2&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Menu Vue"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>`,
-    demoUrl: "https://menu-vue.herokuapp.com",
-    isHeroku: true,
+      "View and join a virtual waitlist by integrating with a third party waitlist service and optionally collect contact tracing information.",
+    githubLink: "https://github.com/wilfredbayudan/waitlist-frontend",
+    videoEmbed: `https://player.vimeo.com/video/630541398?h=b397944b1d&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`,
+    demoUrl: "https://dev.jaybayudan.com/wwv2/102/",
+    isHeroku: false,
   },
   {
     id: 4,
-    name: "Menu Vue",
-    created: "Feb 8, 2022",
-    image:
-      "https://jaybayudan.com/static/media/splash.cd384b137b59183a7f88.jpg",
+    name: "iWander",
+    created: "Sep 2021",
+    image: iWanderImg,
     description:
-      "Build menus for restaurants and allow them to be easily viewed and shared by scanning a QR code.",
-    githubLink: "https://github.com/wilfredbayudan/menu-vue",
-    videoEmbed: `<div style="padding:60.91% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/684118517?h=d5bbce6bb2&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Menu Vue"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>`,
-    demoUrl: "https://menu-vue.herokuapp.com",
-    isHeroku: true,
+      "Create a bucket list of countries using the REST Countries API and MapBox.",
+    githubLink: "https://github.com/wilfredbayudan/iwander",
+    videoEmbed: `https://player.vimeo.com/video/630462554?h=e758ee9c83&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"`,
+    demoUrl: "https://dev.jaybayudan.com/fis/phase1v2",
+    isHeroku: false,
   },
 ];
 
 const Wrapper = styled.div`
   background-color: #22272e;
-  height: 100vh;
+  min-height: 100vh;
   padding: 20px 20px;
   @media (min-width: 768px) {
     padding: 80px 90px;
@@ -108,6 +108,8 @@ const ProjectContainer = styled.div`
 
 const Projects = () => {
   const [scroll, setScroll] = useState(false);
+  const [viewEmbed, setViewEmbed] = useState(false);
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setScroll(
