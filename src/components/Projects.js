@@ -20,6 +20,7 @@ const projectsData = [
     videoEmbed: `https://player.vimeo.com/video/684118517?h=d5bbce6bb2&amp;badge=0&amp;autopause=0&autoplay=1&amp;player_id=0&amp;app_id=58479"`,
     demoUrl: "https://menu-vue.herokuapp.com",
     isHeroku: true,
+    herokuCheck: "https://menu-vue.herokuapp.com/businesses",
     stack: ["React", "Ruby", "Rails", "PostgreSQL"],
   },
   {
@@ -33,6 +34,7 @@ const projectsData = [
     videoEmbed: `https://player.vimeo.com/video/661057433?h=8103f1c499&amp;badge=0&amp;autopause=0&autoplay=1&amp;player_id=0&amp;app_id=58479`,
     demoUrl: "https://wanderlist.jaybayudan.com",
     isHeroku: true,
+    herokuCheck: "https://wanderlist-server.herokuapp.com/bucketlists",
     stack: ["React", "Ruby", "Sinatra", "SQLite"],
   },
   {
@@ -98,11 +100,11 @@ const Content = styled.section`
 
 const Title = styled.h2`
   font-size: 3em;
-  color: #000000;
+  color: #4c4c4c;
   padding: 0 0 15px 0;
   margin-top: 10px;
   margin-bottom: 20px;
-  border-bottom: 4px solid #000000;
+  border-bottom: 4px solid #9d9d9d;
 `;
 
 const ProjectContainer = styled.div`

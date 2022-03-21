@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import styled from "styled-components";
 import Home from "./pages/Home";
+import LoaderOverlay from "./components/LoaderOverlay";
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -25,6 +26,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
+      <LoaderOverlay loaderStatus="Loading!" />
       <Wrapper>
         <Routes>
           <Route index element={<Home />} />

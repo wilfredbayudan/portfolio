@@ -8,7 +8,7 @@ const StyledFooter = styled.footer`
 const Footer = () => {
   return (
     <StyledFooter>
-      <>Footer Stuff</>
+      <></>
     </StyledFooter>
   );
 };

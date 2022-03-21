@@ -5,19 +5,18 @@ import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import styledComponent from "styled-components";
 // import PlaceHolder from "../assets/images/splash.jpg";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Tooltip from "@mui/material/Tooltip";
 import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
 import LinkIcon from "@mui/icons-material/Link";
+import Chip from "@mui/material/Chip";
+import Stack from "@mui/material/Stack";
+import { useDispatch } from "react-redux";
+import { setStatus, setMessage } from "../features/loaderSlice";
 
 const StyledIconButton = styled(IconButton)`
   &:hover {
@@ -60,13 +59,22 @@ const StyledCard = styledComponent(Card)`
 `;
 
 const ProjectItem = ({ project, setViewEmbed }) => {
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  const dispatch = useDispatch();
 
   const handleDemoClick = () => {
+    if (project.isHeroku) {
+      dispatch(setStatus(true));
+      fetch(project.herokuCheck)
+        .then((res) => {
+          dispatch(setStatus(false));
+          window.open(project.demoUrl);
+        })
+        .catch(() => {
+          dispatch(setStatus(false));
+          window.open(project.demoUrl);
+        });
+      return;
+    }
     window.open(project.demoUrl);
   };
 
@@ -77,6 +85,10 @@ const ProjectItem = ({ project, setViewEmbed }) => {
   const handleVideoClick = () => {
     setViewEmbed(project);
   };
+
+  const renderStackChips = project.stack.map((stack, index) => {
+    return <Chip key={index} label={stack} />;
+  });
 
   return (
     <StyledCard>
@@ -92,6 +104,9 @@ const ProjectItem = ({ project, setViewEmbed }) => {
           {project.description}
         </Typography>
       </CardContent>
+      <Stack direction="row" spacing={1} sx={{ padding: "0 15px 0 15px " }}>
+        {renderStackChips}
+      </Stack>
       <CardActions sx={{ flexShrink: 0 }} disableSpacing>
         <Tooltip title="Live Demo" arrow>
           <StyledIconButton
