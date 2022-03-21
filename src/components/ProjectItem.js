@@ -59,7 +59,7 @@ const StyledCard = styledComponent(Card)`
   flex-direction: column;
 `;
 
-const ProjectItem = ({ project }) => {
+const ProjectItem = ({ project, setViewEmbed }) => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -74,12 +74,16 @@ const ProjectItem = ({ project }) => {
     window.open(project.githubLink);
   };
 
+  const handleVideoClick = () => {
+    setViewEmbed(project);
+  };
+
   return (
     <StyledCard>
       <CardHeader title={project.name} subheader={project.created} />
       <CardMedia
         component="img"
-        height="194"
+        height="250"
         image={project.image}
         alt="Paella dish"
       />
@@ -98,7 +102,10 @@ const ProjectItem = ({ project }) => {
           </StyledIconButton>
         </Tooltip>
         <Tooltip title="Video Preview" arrow>
-          <StyledIconButton aria-label="Watch video demonstration">
+          <StyledIconButton
+            aria-label="Watch video demonstration"
+            onClick={() => handleVideoClick()}
+          >
             <OndemandVideoIcon />
           </StyledIconButton>
         </Tooltip>

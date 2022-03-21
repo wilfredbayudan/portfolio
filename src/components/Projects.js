@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import ProjectItem from "./ProjectItem";
+import VideoEmbed from "./VideoEmbed";
+
 import menuVueImg from "../assets/images/menuvue.png";
 import wanderListImg from "../assets/images/wanderlist.png";
 import waitlistImg from "../assets/images/waitlist.png";
@@ -108,7 +110,7 @@ const ProjectContainer = styled.div`
 
 const Projects = () => {
   const [scroll, setScroll] = useState(false);
-  const [viewEmbed, setViewEmbed] = useState(false);
+  const [viewEmbed, setViewEmbed] = useState(null);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -120,11 +122,16 @@ const Projects = () => {
 
   return (
     <Wrapper>
+      <VideoEmbed viewEmbed={viewEmbed} setViewEmbed={setViewEmbed} />
       <Content className={scroll ? "active" : ""}>
         <Title>PROJECTS</Title>
         <ProjectContainer>
           {projectsData.map((project, index) => (
-            <ProjectItem key={index} project={project} />
+            <ProjectItem
+              key={index}
+              project={project}
+              setViewEmbed={setViewEmbed}
+            />
           ))}
         </ProjectContainer>
       </Content>

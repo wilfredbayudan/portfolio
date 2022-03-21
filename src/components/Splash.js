@@ -55,7 +55,7 @@ const Wrapper = styled.div`
   max-width: 2600px;
   div {
     opacity: 0;
-    transform: scale(2, 0);
+    transform: scale(1, 0);
     transition: all 0.5s ease-in-out;
   }
   div.active {
