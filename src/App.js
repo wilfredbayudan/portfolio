@@ -1,16 +1,19 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
     <BrowserRouter>
-      Navbar
+      <Header />
       <Routes>
         <Route index element={<>Projects, Skills</>} />
-        <Route to="/resume" element={<>Resume</>} />
-        <Route to="/contact" element={<>Contact</>} />
+        <Route path="resume" element={<>Resume</>} />
+        <Route path="contact" element={<>Contact</>} />
+        <Route path="*" element={<>404</>} />
       </Routes>
-      Main Content Footer
+      <Footer />
     </BrowserRouter>
   );
 };
