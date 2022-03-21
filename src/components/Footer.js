@@ -1,9 +1,16 @@
+import React from "react";
 import styled from "styled-components";
 
-import React from "react";
+const StyledFooter = styled.footer`
+  flex-shrink: 0;
+`;
 
 const Footer = () => {
-  return <div>Footer</div>;
+  return (
+    <StyledFooter>
+      <>Footer Stuff</>
+    </StyledFooter>
+  );
 };
 
 export default Footer;
