@@ -59,7 +59,7 @@ const Links = styled.ul`
     color: #1a1a1a;
     font-weight: 350;
     margin: 2px 10px 0 10px;
-    font-size: 1.25rem;
+    font-size: 1.1em;
     list-style: none;
     border-bottom: 3px solid #ffffff;
     padding-bottom: 8px;
