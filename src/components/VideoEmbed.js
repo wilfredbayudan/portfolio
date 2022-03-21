@@ -14,6 +14,8 @@ const VideoEmbed = ({ viewEmbed, setViewEmbed }) => {
 
   return (
     <Dialog
+      fullWidth
+      maxWidth="md"
       open={!!viewEmbed}
       onClose={handleClose}
       aria-labelledby="alert-dialog-title"
@@ -21,9 +23,14 @@ const VideoEmbed = ({ viewEmbed, setViewEmbed }) => {
     >
       <DialogTitle id="alert-dialog-title">{name}</DialogTitle>
       <DialogContent>
-        <DialogContentText id="alert-dialog-description">
-          {videoEmbed}
-        </DialogContentText>
+        <iframe
+          src={videoEmbed}
+          width="100%"
+          height="520"
+          frameborder="0"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+        ></iframe>
       </DialogContent>
     </Dialog>
   );
