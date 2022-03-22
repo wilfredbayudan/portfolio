@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -23,13 +23,17 @@ const SampleDiv = styled.div`
 `;
 
 const App = () => {
+  const projectsRef = useRef();
+
+  console.log(projectsRef.current);
+
   return (
     <BrowserRouter>
-      <Header />
-      <LoaderOverlay loaderStatus="Loading!" />
+      <Header projectsRef={projectsRef} />
+      <LoaderOverlay />
       <Wrapper>
         <Routes>
-          <Route index element={<Home />} />
+          <Route index element={<Home projectsRef={projectsRef} />} />
           <Route path="resume" element={<SampleDiv>Resume</SampleDiv>} />
           <Route path="contact" element={<SampleDiv>Contact</SampleDiv>} />
           <Route path="*" element={<>404</>} />

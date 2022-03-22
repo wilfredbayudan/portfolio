@@ -81,7 +81,7 @@ const LoaderOverlay = () => {
         <HideBtn onClick={handleHideClick}>Hide</HideBtn>
         <StatusSpan>
           Spinning up Heroku, <br />
-          this may take a moment!
+          this may take a few moments!
         </StatusSpan>
       </LoaderContainer>
     );

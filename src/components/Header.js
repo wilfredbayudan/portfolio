@@ -105,12 +105,16 @@ const Full = styled.div`
   }
 `;
 
-const Header = ({}) => {
+const Header = ({ projectsRef }) => {
   const [showNav, setShowNav] = useState(false);
 
   const scrollToSplash = () => {};
 
-  const scrollToProjects = () => {};
+  const scrollToProjects = () => {
+    setTimeout(() => {
+      projectsRef.current.scrollIntoView({ behavior: "smooth" });
+    }, 1);
+  };
 
   const toggleDrawer = (open) => (event) => {
     if (

@@ -113,7 +113,7 @@ const ProjectContainer = styled.div`
   justify-content: space-between;
 `;
 
-const Projects = () => {
+const Projects = ({ projectsRef }) => {
   const [scroll, setScroll] = useState(false);
   const [viewEmbed, setViewEmbed] = useState(null);
 
@@ -126,7 +126,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <Wrapper>
+    <Wrapper ref={projectsRef}>
       <VideoEmbed viewEmbed={viewEmbed} setViewEmbed={setViewEmbed} />
       <Content className={scroll ? "active" : ""}>
         <Title>PROJECTS</Title>

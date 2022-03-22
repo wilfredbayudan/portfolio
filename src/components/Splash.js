@@ -79,8 +79,8 @@ const Content = styled.div`
     font-family: "Aguafina Script", cursive;
     color: #ffffff;
     text-transform: uppercase;
-    font-size: 7rem;
-    line-height: 6rem;
+    font-size: 6rem;
+    line-height: 5rem;
     margin-bottom: 0;
     padding-bottom: 0;
     text-align: center;

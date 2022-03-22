@@ -64,15 +64,10 @@ const ProjectItem = ({ project, setViewEmbed }) => {
   const handleDemoClick = () => {
     if (project.isHeroku) {
       dispatch(setStatus(true));
-      fetch(project.herokuCheck)
-        .then((res) => {
-          dispatch(setStatus(false));
-          window.open(project.demoUrl);
-        })
-        .catch(() => {
-          dispatch(setStatus(false));
-          window.open(project.demoUrl);
-        });
+      setTimeout(() => {
+        dispatch(setStatus(false));
+        window.open(project.demoUrl);
+      }, 2000);
       return;
     }
     window.open(project.demoUrl);
@@ -87,7 +82,7 @@ const ProjectItem = ({ project, setViewEmbed }) => {
   };
 
   const renderStackChips = project.stack.map((stack, index) => {
-    return <Chip key={index} label={stack} />;
+    return <Chip sx={{ margin: "3px" }} key={index} label={stack} />;
   });
 
   return (
@@ -104,9 +99,9 @@ const ProjectItem = ({ project, setViewEmbed }) => {
           {project.description}
         </Typography>
       </CardContent>
-      <Stack direction="row" spacing={1} sx={{ padding: "0 15px 0 15px " }}>
+      <div direction="row" spacing={1} style={{ margin: "0 10px 0 10px " }}>
         {renderStackChips}
-      </Stack>
+      </div>
       <CardActions sx={{ flexShrink: 0 }} disableSpacing>
         <Tooltip title="Live Demo" arrow>
           <StyledIconButton
