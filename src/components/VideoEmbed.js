@@ -27,9 +27,8 @@ const VideoEmbed = ({ viewEmbed, setViewEmbed }) => {
           src={videoEmbed}
           width="100%"
           height="520"
-          frameborder="0"
+          frameBorder="0"
           allow="autoplay; fullscreen"
-          allowfullscreen
         ></iframe>
       </DialogContent>
     </Dialog>

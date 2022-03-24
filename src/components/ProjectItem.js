@@ -62,14 +62,6 @@ const ProjectItem = ({ project, setViewEmbed }) => {
   const dispatch = useDispatch();
 
   const handleDemoClick = () => {
-    if (project.isHeroku) {
-      dispatch(setStatus(true));
-      setTimeout(() => {
-        dispatch(setStatus(false));
-        window.open(project.demoUrl);
-      }, 2000);
-      return;
-    }
     window.open(project.demoUrl);
   };
 

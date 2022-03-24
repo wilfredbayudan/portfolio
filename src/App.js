@@ -24,16 +24,18 @@ const SampleDiv = styled.div`
 
 const App = () => {
   const projectsRef = useRef();
-
-  console.log(projectsRef.current);
+  const skillsRef = useRef();
 
   return (
     <BrowserRouter>
-      <Header projectsRef={projectsRef} />
+      <Header projectsRef={projectsRef} skillsRef={skillsRef} />
       <LoaderOverlay />
       <Wrapper>
         <Routes>
-          <Route index element={<Home projectsRef={projectsRef} />} />
+          <Route
+            index
+            element={<Home projectsRef={projectsRef} skillsRef={skillsRef} />}
+          />
           <Route path="resume" element={<SampleDiv>Resume</SampleDiv>} />
           <Route path="contact" element={<SampleDiv>Contact</SampleDiv>} />
           <Route path="*" element={<>404</>} />

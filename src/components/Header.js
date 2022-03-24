@@ -105,7 +105,7 @@ const Full = styled.div`
   }
 `;
 
-const Header = ({ projectsRef }) => {
+const Header = ({ projectsRef, skillsRef }) => {
   const [showNav, setShowNav] = useState(false);
 
   const scrollToSplash = () => {};
@@ -113,6 +113,12 @@ const Header = ({ projectsRef }) => {
   const scrollToProjects = () => {
     setTimeout(() => {
       projectsRef.current.scrollIntoView({ behavior: "smooth" });
+    }, 1);
+  };
+
+  const scrollToSkills = () => {
+    setTimeout(() => {
+      skillsRef.current.scrollIntoView({ behavior: "smooth" });
     }, 1);
   };
 
@@ -190,7 +196,7 @@ const Header = ({ projectsRef }) => {
           <Links>
             <LinkItem onClick={scrollToSplash}>Home</LinkItem>
             <LinkItem onClick={scrollToProjects}>Projects</LinkItem>
-            <LinkItem>Skills</LinkItem>
+            <LinkItem onClick={scrollToSkills}>Skills</LinkItem>
             <LinkItem>Resume</LinkItem>
             <LinkItem>Contact</LinkItem>
           </Links>
