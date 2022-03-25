@@ -3,8 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   /* background-color: #22272e; */
   padding: 20px 20px;
-  min-height: 100vh;
-  @media (min-width: 768px) {
+  @media (min-width: 1152px) {
     padding: 80px 90px 0 80px;
   }
   section {
