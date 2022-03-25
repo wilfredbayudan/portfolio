@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import ProjectItem from "./ProjectItem";
 import VideoEmbed from "./VideoEmbed";
-
 import menuVueImg from "../assets/images/menuvue.png";
 import wanderListImg from "../assets/images/wanderlist.png";
 import waitlistImg from "../assets/images/waitlist.png";
 import iWanderImg from "../assets/images/iwander.png";
+import { Wrapper, Content, Title } from "../styles/Content";
 
 const projectsData = [
   {
@@ -65,48 +65,6 @@ const projectsData = [
   },
 ];
 
-const Wrapper = styled.div`
-  /* background-color: #22272e; */
-  padding: 20px 20px;
-  @media (min-width: 768px) {
-    padding: 80px 90px;
-  }
-  section {
-    opacity: 0;
-    transition: all 500ms ease-in-out;
-    position: relative;
-    left: -500px;
-  }
-  section.active {
-    opacity: 1;
-    left: 0px;
-  }
-`;
-
-const Content = styled.section`
-  width: 100%;
-  max-width: 1600px;
-  background: #f5f5f5;
-  text-align: left;
-  margin: 0 auto;
-  padding: 15px;
-  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
-  @media (min-width: 768px) {
-    padding: 30px;
-  }
-`;
-
-const Title = styled.h2`
-  font-size: 3em;
-  color: #4c4c4c;
-  padding: 0 0 15px 0;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  border-bottom: 4px solid #9d9d9d;
-`;
-
 const ProjectContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -129,7 +87,7 @@ const Projects = ({ projectsRef }) => {
     <Wrapper ref={projectsRef}>
       <VideoEmbed viewEmbed={viewEmbed} setViewEmbed={setViewEmbed} />
       <Content className={scroll ? "active" : ""}>
-        <Title>PROJECTS</Title>
+        <Title>Projects</Title>
         <ProjectContainer>
           {projectsData.map((project, index) => (
             <ProjectItem
