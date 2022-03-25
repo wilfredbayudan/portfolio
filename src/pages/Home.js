@@ -3,12 +3,12 @@ import Splash from "../components/Splash";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 
-const Home = ({ projectsRef, skillsRef }) => {
+const Home = ({ projectsRef, skillsRef, splashRef }) => {
   console.log(skillsRef);
 
   return (
     <div>
-      <Splash />
+      <Splash splashRef={splashRef} />
       <Projects projectsRef={projectsRef} />
       <Skills skillsRef={skillsRef} />
     </div>

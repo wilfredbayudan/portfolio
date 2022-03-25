@@ -105,10 +105,14 @@ const Full = styled.div`
   }
 `;
 
-const Header = ({ projectsRef, skillsRef }) => {
+const Header = ({ projectsRef, skillsRef, splashRef }) => {
   const [showNav, setShowNav] = useState(false);
 
-  const scrollToSplash = () => {};
+  const scrollToSplash = () => {
+    setTimeout(() => {
+      splashRef.current.scrollIntoView({ behavior: "smooth" });
+    }, 1);
+  };
 
   const scrollToProjects = () => {
     setTimeout(() => {
@@ -159,6 +163,12 @@ const Header = ({ projectsRef, skillsRef }) => {
             <MenuBookIcon />
           </ListItemIcon>
           <ListItemText primary={"Projects"} />
+        </ListItem>
+        <ListItem button onClick={scrollToSkills}>
+          <ListItemIcon>
+            <MenuBookIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Skills"} />
         </ListItem>
         {/* <ListItem button onClick={() => navigate("/how")}>
           <ListItemIcon>

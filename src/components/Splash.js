@@ -140,7 +140,7 @@ const Content = styled.div`
   }
 `;
 
-const Splash = () => {
+const Splash = ({ splashRef }) => {
   const [showContent, setShowContent] = useState(false);
   const [showTitle, setShowTitle] = useState(false);
   const [showSlogan, setShowSlogan] = useState(false);
@@ -161,7 +161,7 @@ const Splash = () => {
   }, []);
 
   return (
-    <Header>
+    <Header ref={splashRef}>
       <img src={SplashBackground} alt="Splash Preload" className="preload" />
       <Wrapper id="splash" className={darkMode ? "dark" : ""}>
         <Content
