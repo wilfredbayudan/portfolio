@@ -58,7 +58,7 @@ const Skill = styled.div`
   @media (min-width: 1028px) {
     width: 25%;
   }
-  @media (min-width: 1152px) {
+  @media (min-width: 1200px) {
     width: 16%;
   }
 `;
@@ -74,51 +74,51 @@ const Skills = ({ skillsRef }) => {
         <SkillsContainer>
           <Skill>
             <SkillIcon className="devicon-html5-plain"></SkillIcon>
-            <span>HTML 5</span>
+            <span>html5</span>
           </Skill>
           <Skill>
             <SkillIcon className="devicon-css3-plain"></SkillIcon>
-            <span>CSS 3</span>
-          </Skill>{" "}
+            <span>css3</span>
+          </Skill>
           <Skill>
-            <SkillIcon className="devicon-html5-plain"></SkillIcon>
-            <span>HTML 5</span>
-          </Skill>{" "}
+            <SkillIcon className="devicon-javascript-plain"></SkillIcon>
+            <span>javascript</span>
+          </Skill>
           <Skill>
-            <SkillIcon className="devicon-html5-plain"></SkillIcon>
-            <span>HTML 5</span>
-          </Skill>{" "}
+            <SkillIcon className="devicon-mongodb-plain"></SkillIcon>
+            <span>mongodb</span>
+          </Skill>
           <Skill>
-            <SkillIcon className="devicon-html5-plain"></SkillIcon>
-            <span>HTML 5</span>
-          </Skill>{" "}
+            <SkillIcon className="devicon-mysql-plain"></SkillIcon>
+            <span>mysql</span>
+          </Skill>
           <Skill>
-            <SkillIcon className="devicon-html5-plain"></SkillIcon>
-            <span>HTML 5</span>
-          </Skill>{" "}
+            <SkillIcon className="devicon-postgresql-plain"></SkillIcon>
+            <span>postgresql</span>
+          </Skill>
           <Skill>
-            <SkillIcon className="devicon-html5-plain"></SkillIcon>
-            <span>HTML 5</span>
-          </Skill>{" "}
+            <SkillIcon className="devicon-photoshop-plain"></SkillIcon>
+            <span>photoshop</span>
+          </Skill>
           <Skill>
-            <SkillIcon className="devicon-html5-plain"></SkillIcon>
-            <span>HTML 5</span>
-          </Skill>{" "}
+            <SkillIcon className="devicon-php-plain"></SkillIcon>
+            <span>php</span>
+          </Skill>
           <Skill>
-            <SkillIcon className="devicon-html5-plain"></SkillIcon>
-            <span>HTML 5</span>
-          </Skill>{" "}
+            <SkillIcon className="devicon-ruby-plain"></SkillIcon>
+            <span>ruby</span>
+          </Skill>
           <Skill>
-            <SkillIcon className="devicon-html5-plain"></SkillIcon>
-            <span>HTML 5</span>
-          </Skill>{" "}
+            <SkillIcon className="devicon-rails-plain"></SkillIcon>
+            <span>rails</span>
+          </Skill>
           <Skill>
-            <SkillIcon className="devicon-html5-plain"></SkillIcon>
-            <span>HTML 5</span>
-          </Skill>{" "}
+            <SkillIcon className="devicon-react-plain"></SkillIcon>
+            <span>react</span>
+          </Skill>
           <Skill>
-            <SkillIcon className="devicon-html5-plain"></SkillIcon>
-            <span>HTML 5</span>
+            <SkillIcon className="devicon-redux-plain"></SkillIcon>
+            <span>redux</span>
           </Skill>
         </SkillsContainer>
       </Content>
