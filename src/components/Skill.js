@@ -60,8 +60,6 @@ const Skill = ({ skill: { label, icon } }) => {
 
   const inViewport = useIntersection(ref, "-15%");
 
-  console.log(`${label} - ${inViewport}`);
-
   return (
     <SkillContainer ref={ref} className={inViewport ? "active" : ""}>
       <SkillIcon className={icon}></SkillIcon>

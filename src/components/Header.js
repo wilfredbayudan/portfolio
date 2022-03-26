@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import LogoImg from "../assets/images/logo.png";
 import Box from "@mui/material/Box";
@@ -10,6 +10,9 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
+import HomeIcon from "@mui/icons-material/Home";
+import EngineeringIcon from "@mui/icons-material/Engineering";
+import useIntersection from "../hooks/useIntersection";
 
 const HeaderBar = styled.header`
   height: 50px;
@@ -70,6 +73,11 @@ const Links = styled.ul`
 
   li:hover {
     color: #00ceb3;
+  }
+
+  li.current {
+    color: #00ceb3;
+    font-weight: 400;
     border-bottom: 3px solid #00ceb3;
   }
 
@@ -107,6 +115,22 @@ const Full = styled.div`
 
 const Header = ({ projectsRef, skillsRef, splashRef }) => {
   const [showNav, setShowNav] = useState(false);
+  const [currentPage, setCurrentPage] = useState("home");
+
+  const inProjects = useIntersection(projectsRef, "-5%");
+  console.log(inProjects);
+
+  const inSkills = useIntersection(skillsRef, "-5%");
+  console.log(inSkills);
+
+  const inSplash = useIntersection(splashRef, "-5%");
+  console.log(inSplash);
+
+  useEffect(() => {
+    if (inSplash) setCurrentPage("home");
+    if (inProjects) setCurrentPage("projects");
+    if (inSkills) setCurrentPage("skills");
+  }, [inProjects, inSkills, inSplash]);
 
   const scrollToSplash = () => {
     setTimeout(() => {
@@ -154,7 +178,7 @@ const Header = ({ projectsRef, skillsRef, splashRef }) => {
         </ListItem> */}
         <ListItem button onClick={scrollToSplash}>
           <ListItemIcon>
-            <MenuBookIcon />
+            <HomeIcon />
           </ListItemIcon>
           <ListItemText primary={"Home"} />
         </ListItem>
@@ -166,7 +190,7 @@ const Header = ({ projectsRef, skillsRef, splashRef }) => {
         </ListItem>
         <ListItem button onClick={scrollToSkills}>
           <ListItemIcon>
-            <MenuBookIcon />
+            <EngineeringIcon />
           </ListItemIcon>
           <ListItemText primary={"Skills"} />
         </ListItem>
@@ -204,9 +228,24 @@ const Header = ({ projectsRef, skillsRef, splashRef }) => {
         <Full>
           <Logo src={LogoImg} alt="WB Logo" />
           <Links>
-            <LinkItem onClick={scrollToSplash}>Home</LinkItem>
-            <LinkItem onClick={scrollToProjects}>Projects</LinkItem>
-            <LinkItem onClick={scrollToSkills}>Skills</LinkItem>
+            <LinkItem
+              className={currentPage === "home" ? "current" : ""}
+              onClick={scrollToSplash}
+            >
+              Home
+            </LinkItem>
+            <LinkItem
+              className={currentPage === "projects" ? "current" : ""}
+              onClick={scrollToProjects}
+            >
+              Projects
+            </LinkItem>
+            <LinkItem
+              className={currentPage === "skills" ? "current" : ""}
+              onClick={scrollToSkills}
+            >
+              Skills
+            </LinkItem>
             <LinkItem>Resume</LinkItem>
             <LinkItem>Contact</LinkItem>
           </Links>
