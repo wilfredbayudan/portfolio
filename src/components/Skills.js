@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import { Wrapper, Content, Title } from "../styles/Content";
+import useIntersection from "../hooks/useIntersection";
 
 const StyledWrapper = styled(Wrapper)`
   background-color: #22272e;
@@ -66,7 +67,10 @@ const Skill = styled.div`
 const SkillIcon = styled.i``;
 
 const Skills = ({ skillsRef }) => {
-  console.log(skillsRef);
+  const inViewport = useIntersection(skillsRef, "0px");
+
+  console.log(inViewport);
+
   return (
     <StyledWrapper ref={skillsRef}>
       <Content className="active">
