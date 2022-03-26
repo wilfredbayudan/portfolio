@@ -50,9 +50,9 @@ const StyledCard = styledComponent(Card)`
   @media (min-width: 768px) {
     width: 49%;
   }
-  // @media (min-width: 1400px) {
-  //   width: 24%;
-  // }
+  @media (min-width: 1400px) {
+    width: 24%;
+  }
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
