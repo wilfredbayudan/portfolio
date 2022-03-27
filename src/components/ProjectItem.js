@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useRef } from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -17,6 +17,7 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import { useDispatch } from "react-redux";
 import { setStatus, setMessage } from "../features/loaderSlice";
+import useIntersection from "../hooks/useIntersection";
 
 const StyledIconButton = styled(IconButton)`
   &:hover {
@@ -59,6 +60,10 @@ const StyledCard = styledComponent(Card)`
 `;
 
 const ProjectItem = ({ project, setViewEmbed }) => {
+  const ref = useRef();
+
+  const inViewport = useIntersection(ref, "-15%");
+
   const dispatch = useDispatch();
 
   const handleDemoClick = () => {
@@ -78,7 +83,7 @@ const ProjectItem = ({ project, setViewEmbed }) => {
   });
 
   return (
-    <StyledCard>
+    <StyledCard ref={ref} className={inViewport ? "active" : ""}>
       <CardHeader title={project.name} subheader={project.created} />
       <CardMedia
         component="img"

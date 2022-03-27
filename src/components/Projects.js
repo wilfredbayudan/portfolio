@@ -69,6 +69,18 @@ const ProjectContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  div,
+  img {
+    opacity: 0;
+    transition: all 500ms ease-in-out;
+  }
+
+  div.active,
+  div.active img,
+  div.active div {
+    opacity: 1;
+  }
 `;
 
 const Projects = ({ projectsRef }) => {
