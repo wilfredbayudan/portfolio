@@ -65,25 +65,7 @@ const projectsData = [
   },
 ];
 
-const ProjectContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-  div,
-  img {
-    opacity: 0;
-    transition: all 500ms ease-in-out;
-  }
-
-  div.active,
-  div.active img,
-  div.active div {
-    opacity: 1;
-  }
-`;
-
-const Projects = ({ projectsRef }) => {
+const Contact = ({ contactRef }) => {
   const [scroll, setScroll] = useState(false);
   const [viewEmbed, setViewEmbed] = useState(null);
 
@@ -97,20 +79,9 @@ const Projects = ({ projectsRef }) => {
   return (
     <Wrapper ref={projectsRef}>
       <VideoEmbed viewEmbed={viewEmbed} setViewEmbed={setViewEmbed} />
-      <Content className={scroll ? "active" : ""}>
-        <Title>Projects</Title>
-        <ProjectContainer>
-          {projectsData.map((project, index) => (
-            <ProjectItem
-              key={index}
-              project={project}
-              setViewEmbed={setViewEmbed}
-            />
-          ))}
-        </ProjectContainer>
-      </Content>
+      <Content className={scroll ? "active" : ""}>CONTACT ME!</Content>
     </Wrapper>
   );
 };
 
-export default Projects;
+export default Contact;

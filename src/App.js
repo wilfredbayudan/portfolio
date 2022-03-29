@@ -26,6 +26,7 @@ const App = () => {
   const projectsRef = useRef();
   const skillsRef = useRef();
   const splashRef = useRef();
+  const contactRef = useRef();
 
   return (
     <BrowserRouter>
@@ -33,6 +34,7 @@ const App = () => {
         splashRef={splashRef}
         projectsRef={projectsRef}
         skillsRef={skillsRef}
+        contactRef={contactRef}
       />
       <LoaderOverlay />
       <Wrapper>
@@ -44,11 +46,11 @@ const App = () => {
                 splashRef={splashRef}
                 projectsRef={projectsRef}
                 skillsRef={skillsRef}
+                contactRef={contactRef}
               />
             }
           />
           <Route path="resume" element={<SampleDiv>Resume</SampleDiv>} />
-          <Route path="contact" element={<SampleDiv>Contact</SampleDiv>} />
           <Route path="*" element={<>404</>} />
         </Routes>
         <Footer />
