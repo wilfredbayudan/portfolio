@@ -25,7 +25,7 @@ const StyledWrapper = styled(Wrapper)`
   h4 {
     opacity: 0;
     transform: scale(1, 0);
-    transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out 1s;
   }
   h4.active {
     opacity: 1;
