@@ -62,7 +62,7 @@ const StyledCard = styledComponent(Card)`
 const ProjectItem = ({ project, setViewEmbed }) => {
   const ref = useRef();
 
-  const inViewport = useIntersection(ref, "-15%");
+  const inViewport = useIntersection(ref, "-5%");
 
   const dispatch = useDispatch();
 
