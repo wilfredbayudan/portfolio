@@ -15,5 +15,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .preload {
-  display: none;
+  display: hidden;
+  height: 1px;
+  width: 1px;
+  position: absolute;
 }

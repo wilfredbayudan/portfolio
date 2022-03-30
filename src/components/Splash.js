@@ -107,6 +107,8 @@ const Content = styled.div`
     opacity: 0;
     transition: opacity 0.5s ease-in;
     margin-top: 0;
+    letter-spacing: 8px;
+    font-weight: normal;
   }
 
   h3.active {
@@ -181,7 +183,7 @@ const Splash = ({ splashRef }) => {
           <h3
             className={`${showTitle ? "active" : ""} ${darkMode ? "dark" : ""}`}
           >
-            Full Stack Software Engineer
+            Software Engineer
           </h3>
           <span
             className={`${showSlogan ? "active" : ""} ${
