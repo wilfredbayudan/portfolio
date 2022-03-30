@@ -34,7 +34,7 @@ const FormInput = styled.div`
   margin-bottom: 20px;
 `;
 
-const ContactForm = ({ inViewport }) => {
+const ContactForm = ({ inViewport, sendMessage, loading }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -48,14 +48,24 @@ const ContactForm = ({ inViewport }) => {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormData({
+      ...formData,
+      message: "",
+    });
+    sendMessage(formData);
+  };
+
   return (
-    <Form className={inViewport ? "active" : ""}>
+    <Form className={inViewport ? "active" : ""} onSubmit={handleSubmit}>
       <Title>Contact Me</Title>
       <FormInput>
         <StyledTextField
           fullWidth
           name="name"
           label="Name"
+          disabled={loading}
           variant="filled"
           onChange={handleChange}
           value={formData.name}
@@ -66,6 +76,7 @@ const ContactForm = ({ inViewport }) => {
           fullWidth
           name="email"
           label="Email"
+          disabled={loading}
           variant="filled"
           onChange={handleChange}
           value={formData.email}
@@ -75,6 +86,7 @@ const ContactForm = ({ inViewport }) => {
         <StyledTextField
           fullWidth
           name="message"
+          disabled={loading}
           label="Message"
           variant="filled"
           multiline
@@ -85,6 +97,7 @@ const ContactForm = ({ inViewport }) => {
       </FormInput>
       <LoadingButton
         type="submit"
+        loading={loading}
         disableElevation
         className="btn"
         variant="contained"

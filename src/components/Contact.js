@@ -8,8 +8,9 @@ const StyledContent = styled(Content)`
   background: none;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  min-height: 500px;
   @media (min-width: 1024px) {
     flex-direction: row;
   }
@@ -48,7 +49,7 @@ const H4 = styled.h4`
   padding: 0;
   font-size: 4em;
   color: #434343;
-  min-width: 50%;
+  width: 100%;
   line-height: 1em;
   @media (min-width: 768px) {
     font-size: 5em;
@@ -61,18 +62,53 @@ const H4 = styled.h4`
 const Contact = ({ contactRef }) => {
   const textRef = useRef();
   const formRef = useRef();
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const inContacts = useIntersection(contactRef, "-15%");
+
+  const sendMessage = (dataObj) => {
+    console.log(dataObj);
+    const sendDataObj = new FormData();
+    Object.keys(dataObj).forEach((inputName) => {
+      sendDataObj.append(inputName, dataObj[inputName]);
+    });
+    setLoading(true);
+    fetch("https://jaybayudan.com/api/contact.php", {
+      method: "POST",
+      body: sendDataObj,
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json);
+        setLoading(false);
+        if (json.status) {
+          setSubmitted(true);
+        }
+      });
+  };
 
   // const inViewport = useIntersection(contactRef, "-15%");
 
   return (
     <StyledWrapper ref={contactRef}>
       <StyledContent className="active">
-        <H4 className={inContacts ? "active" : ""}>
-          Let's <span>build</span> something.
-        </H4>
-        <ContactForm inViewport={inContacts} />
+        {submitted ? (
+          <H4 className={submitted ? "active" : ""}>
+            Thank you for <span>connecting!</span>
+          </H4>
+        ) : (
+          <>
+            <H4 className={inContacts ? "active" : ""}>
+              Let's <span>build</span> something.
+            </H4>
+            <ContactForm
+              sendMessage={sendMessage}
+              inViewport={inContacts}
+              loading={loading}
+            />
+          </>
+        )}
       </StyledContent>
     </StyledWrapper>
   );
