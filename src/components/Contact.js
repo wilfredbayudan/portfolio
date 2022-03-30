@@ -43,7 +43,7 @@ const StyledWrapper = styled(Wrapper)`
 
 const H4 = styled.h4`
   text-align: center;
-  margin: 60px 0;
+  margin: 40px 0;
   padding: 0;
   font-size: 4em;
   color: #434343;
