@@ -16,6 +16,8 @@ import useIntersection from "../hooks/useIntersection";
 import EmailIcon from "@mui/icons-material/Email";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
+import { useSelector, useDispatch } from "react-redux";
+import { setTheme } from "../features/themeSlice";
 
 const HeaderBar = styled.header`
   height: 50px;
@@ -111,11 +113,24 @@ const Full = styled.div`
 const Header = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
   const [showNav, setShowNav] = useState(false);
   const [currentPage, setCurrentPage] = useState("home");
+  const dispatch = useDispatch();
 
   const inSplash = useIntersection(splashRef, "-3%");
   const inProjects = useIntersection(projectsRef, "-15%");
   const inSkills = useIntersection(skillsRef, "-15%");
   const inContact = useIntersection(contactRef, "-15%");
+
+  const theme = useSelector((state) => state.theme.style);
+
+  const toggleTheme = () => {
+    if (theme === "light") {
+      dispatch(setTheme("dark"));
+    } else {
+      dispatch(setTheme("light"));
+    }
+  };
+
+  console.log(theme);
 
   useEffect(() => {
     if (inSplash) setCurrentPage("home");
@@ -228,8 +243,8 @@ const Header = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
             >
               Contact
             </LinkItem>
-            <LinkItem>
-              <DarkModeIcon />
+            <LinkItem onClick={toggleTheme}>
+              {theme === "light" ? <DarkModeIcon /> : <LightModeIcon />}
             </LinkItem>
           </Links>
         </Full>

@@ -6,7 +6,7 @@ export function setTheme(style) {
 }
 
 const initialState = {
-  theme: "light",
+  style: "light",
 };
 
 export default function themeSlice(state = initialState, action) {
@@ -14,7 +14,7 @@ export default function themeSlice(state = initialState, action) {
     case "theme/setTheme":
       return {
         ...state,
-        theme: action.payload,
+        style: action.payload,
       };
     default:
       return state;

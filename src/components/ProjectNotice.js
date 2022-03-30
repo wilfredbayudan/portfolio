@@ -28,8 +28,6 @@ const ProjectNotice = () => {
 
   const notice = useSelector((state) => state.notice);
 
-  console.log(notice);
-
   const handleClose = () => {
     dispatch(clear());
   };
