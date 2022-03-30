@@ -25,7 +25,7 @@ const StyledWrapper = styled(Wrapper)`
   h4 {
     opacity: 0;
     transform: scale(1, 0);
-    transition: all 0.5s ease-in-out 1s;
+    transition: all 0.5s ease-in-out 400ms;
   }
   h4.active {
     opacity: 1;
@@ -36,7 +36,7 @@ const StyledWrapper = styled(Wrapper)`
     opacity: 0;
     position: relative;
     right: -200px;
-    transition: all 0.5s ease-in-out 0.4s;
+    transition: all 0.5s ease-in-out 800ms;
   }
   form.active {
     opacity: 1;
