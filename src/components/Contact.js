@@ -66,9 +66,7 @@ const SuccessDiv = styled.div`
   .btn {
     background-color: #64d5c6;
     color: #3e3e3e;
-    width: 100%;
     @media (min-width: 768px) {
-      width: auto;
     }
   }
   .btn:hover {
