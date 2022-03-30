@@ -21,6 +21,10 @@ const StyledContent = styled(Content)`
 const StyledWrapper = styled(Wrapper)`
   padding-top: 0;
   padding-bottom: 0;
+  height: 100vh;
+  max-height: 1400px;
+  display: flex;
+  align-items: center;
   overflow: hidden;
   h4 {
     opacity: 0;

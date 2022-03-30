@@ -3,6 +3,12 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   /* background-color: #22272e; */
   padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  @media (min-width: 768px) {
+    max-height: 1300px;
+  }
   @media (min-width: 1152px) {
     padding: 40px;
   }
