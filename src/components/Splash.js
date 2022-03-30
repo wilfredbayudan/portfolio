@@ -4,6 +4,7 @@ import SplashBackground from "../assets/images/splash.jpg";
 
 const Header = styled.div`
   height: 100vh;
+  max-height: 1600px;
   max-width: 2600px;
   width: 100%;
   margin: auto;
@@ -12,6 +13,7 @@ const Header = styled.div`
     color: #000000;
     position: absolute;
     height: 100vh;
+    max-height: 1600px;
     width: 100%;
     z-index: 3;
     display: flex;
@@ -27,6 +29,7 @@ const Header = styled.div`
   div#bg-cover {
     width: 100%;
     height: 100vh;
+    max-height: 1600px;
     position: absolute;
     background-color: #ffffff;
     max-width: 2600px;
@@ -43,6 +46,7 @@ const Header = styled.div`
     width: 100%;
     max-width: 2600px;
     height: 100vh;
+    max-height: 1600px;
     position: absolute;
     background-image: url(${SplashBackground});
     background-position: center center;

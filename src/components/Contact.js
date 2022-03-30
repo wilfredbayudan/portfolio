@@ -19,11 +19,31 @@ const StyledContent = styled(Content)`
 const StyledWrapper = styled(Wrapper)`
   padding-top: 0;
   padding-bottom: 0;
+  h4 {
+    opacity: 0;
+    transform: scale(1, 0);
+    transition: all 0.5s ease-in-out;
+  }
+  h4.active {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+
+  form {
+    opacity: 0;
+    position: relative;
+    right: -200px;
+    transition: all 0.5s ease-in-out 0.4s;
+  }
+  form.active {
+    opacity: 1;
+    right: 0;
+  }
 `;
 
 const H4 = styled.h4`
   text-align: center;
-  margin: 60px auto 60px auto;
+  margin: 60px 0;
   padding: 0;
   font-size: 5em;
   color: #434343;
@@ -38,15 +58,17 @@ const Contact = ({ contactRef }) => {
   const textRef = useRef();
   const formRef = useRef();
 
+  const inContacts = useIntersection(contactRef, "-15%");
+
   // const inViewport = useIntersection(contactRef, "-15%");
 
   return (
     <StyledWrapper ref={contactRef}>
       <StyledContent className="active">
-        <H4>
+        <H4 className={inContacts ? "active" : ""}>
           Let's <span>build</span> something.
         </H4>
-        <ContactForm />
+        <ContactForm inViewport={inContacts} />
       </StyledContent>
     </StyledWrapper>
   );

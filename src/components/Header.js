@@ -73,21 +73,13 @@ const Links = styled.ul`
   }
 
   li:hover {
-    color: #00ceb3;
+    color: #30d1bc;
   }
 
   li.current {
-    color: #00ceb3;
+    color: #30d1bc;
     font-weight: 400;
-    border-bottom: 3px solid #00ceb3;
-  }
-
-  .current {
-    li {
-      color: #00ceb3;
-      font-weight: 400;
-      border-bottom: 3px solid #00ceb3;
-    }
+    border-bottom: 3px solid #30d1bc;
   }
 `;
 
@@ -118,46 +110,22 @@ const Header = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
   const [showNav, setShowNav] = useState(false);
   const [currentPage, setCurrentPage] = useState("home");
 
-  const inProjects = useIntersection(projectsRef, "-5%");
-  console.log(inProjects);
-
-  const inSkills = useIntersection(skillsRef, "-5%");
-  console.log(inSkills);
-
-  const inSplash = useIntersection(splashRef, "-5%");
-  console.log(inSplash);
+  const inSplash = useIntersection(splashRef, "-3%");
+  const inProjects = useIntersection(projectsRef, "-15%");
+  const inSkills = useIntersection(skillsRef, "-15%");
+  const inContact = useIntersection(contactRef, "-15%");
 
   useEffect(() => {
     if (inSplash) setCurrentPage("home");
     if (inProjects) setCurrentPage("projects");
     if (inSkills) setCurrentPage("skills");
-  }, [inProjects, inSkills, inSplash]);
+    if (inContact) setCurrentPage("contact");
+  }, [inProjects, inSkills, inSplash, inContact]);
 
-  const scrollToSplash = () => {
+  const scrollToRef = (ref, label) => {
     setTimeout(() => {
-      splashRef.current.scrollIntoView({ behavior: "smooth" });
-      setCurrentPage("home");
-    }, 1);
-  };
-
-  const scrollToProjects = () => {
-    setTimeout(() => {
-      projectsRef.current.scrollIntoView({ behavior: "smooth" });
-      setCurrentPage("projects");
-    }, 1);
-  };
-
-  const scrollToSkills = () => {
-    setTimeout(() => {
-      skillsRef.current.scrollIntoView({ behavior: "smooth" });
-      setCurrentPage("skills");
-    }, 1);
-  };
-
-  const scrollToContact = () => {
-    setTimeout(() => {
-      contactRef.current.scrollIntoView({ behavior: "smooth" });
-      setCurrentPage("contact");
+      ref.current.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => setCurrentPage(label), 500);
     }, 1);
   };
 
@@ -187,25 +155,25 @@ const Header = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
           </ListItemIcon>
           <ListItemText primary={"Home"} />
         </ListItem> */}
-        <ListItem button onClick={scrollToSplash}>
+        <ListItem button onClick={() => scrollToRef(splashRef, "home")}>
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
           <ListItemText primary={"Home"} />
         </ListItem>
-        <ListItem button onClick={scrollToProjects}>
+        <ListItem button onClick={() => scrollToRef(projectsRef, "projects")}>
           <ListItemIcon>
             <MenuBookIcon />
           </ListItemIcon>
           <ListItemText primary={"Projects"} />
         </ListItem>
-        <ListItem button onClick={scrollToSkills}>
+        <ListItem button onClick={() => scrollToRef(skillsRef, "skills")}>
           <ListItemIcon>
             <EngineeringIcon />
           </ListItemIcon>
           <ListItemText primary={"Skills"} />
         </ListItem>
-        <ListItem button onClick={scrollToContact}>
+        <ListItem button onClick={() => scrollToRef(contactRef, "contact")}>
           <ListItemIcon>
             <EmailIcon />
           </ListItemIcon>
@@ -235,26 +203,26 @@ const Header = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
           <Links>
             <LinkItem
               className={currentPage === "home" ? "current" : ""}
-              onClick={scrollToSplash}
+              onClick={() => scrollToRef(splashRef, "home")}
             >
               Home
             </LinkItem>
             <LinkItem
               className={currentPage === "projects" ? "current" : ""}
-              onClick={scrollToProjects}
+              onClick={() => scrollToRef(projectsRef, "projects")}
             >
               Projects
             </LinkItem>
             <LinkItem
               className={currentPage === "skills" ? "current" : ""}
-              onClick={scrollToSkills}
+              onClick={() => scrollToRef(skillsRef, "skills")}
             >
               Skills
             </LinkItem>
             <LinkItem>Resume</LinkItem>
             <LinkItem
               className={currentPage === "contact" ? "current" : ""}
-              onClick={scrollToContact}
+              onClick={() => scrollToRef(contactRef, "contact")}
             >
               Contact
             </LinkItem>

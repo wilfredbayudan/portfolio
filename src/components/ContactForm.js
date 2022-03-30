@@ -35,7 +35,7 @@ const FormInput = styled.div`
   margin-bottom: 20px;
 `;
 
-const ContactForm = () => {
+const ContactForm = ({ inViewport }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -50,7 +50,7 @@ const ContactForm = () => {
   };
 
   return (
-    <Form>
+    <Form className={inViewport ? "active" : ""}>
       <Title>Contact Me</Title>
       <FormInput>
         <StyledTextField
