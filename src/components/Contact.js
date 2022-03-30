@@ -19,6 +19,7 @@ const StyledContent = styled(Content)`
 const StyledWrapper = styled(Wrapper)`
   padding-top: 0;
   padding-bottom: 0;
+  overflow: hidden;
   h4 {
     opacity: 0;
     transform: scale(1, 0);
