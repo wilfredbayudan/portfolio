@@ -14,6 +14,8 @@ import HomeIcon from "@mui/icons-material/Home";
 import EngineeringIcon from "@mui/icons-material/Engineering";
 import useIntersection from "../hooks/useIntersection";
 import EmailIcon from "@mui/icons-material/Email";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 
 const HeaderBar = styled.header`
   height: 50px;
@@ -225,6 +227,9 @@ const Header = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
               onClick={() => scrollToRef(contactRef, "contact")}
             >
               Contact
+            </LinkItem>
+            <LinkItem>
+              <DarkModeIcon />
             </LinkItem>
           </Links>
         </Full>
