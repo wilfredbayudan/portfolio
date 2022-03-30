@@ -34,13 +34,14 @@ const FormInput = styled.div`
   margin-bottom: 20px;
 `;
 
-const ContactForm = ({ inViewport, sendMessage, loading }) => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
+const ContactForm = ({
+  inViewport,
+  sendMessage,
+  loading,
+  formData,
+  setFormData,
+  additionalMsg,
+}) => {
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -93,6 +94,7 @@ const ContactForm = ({ inViewport, sendMessage, loading }) => {
           rows={4}
           onChange={handleChange}
           value={formData.message}
+          autoFocus={additionalMsg}
         />
       </FormInput>
       <LoadingButton

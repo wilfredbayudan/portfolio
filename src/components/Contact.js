@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Wrapper, Content } from "../styles/Content";
 import useIntersection from "../hooks/useIntersection";
 import ContactForm from "./ContactForm";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 const StyledContent = styled(Content)`
   background: none;
@@ -59,16 +60,37 @@ const H4 = styled.h4`
   }
 `;
 
+const SuccessDiv = styled.div`
+  text-align: center;
+
+  .btn {
+    background-color: #64d5c6;
+    color: #3e3e3e;
+    width: 100%;
+    @media (min-width: 768px) {
+      width: auto;
+    }
+  }
+  .btn:hover {
+    background-color: #96e2d8;
+  }
+`;
+
 const Contact = ({ contactRef }) => {
   const textRef = useRef();
   const formRef = useRef();
   const [submitted, setSubmitted] = useState(false);
+  const [additionalMsg, setAdditionalMsg] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
   const inContacts = useIntersection(contactRef, "-15%");
 
   const sendMessage = (dataObj) => {
-    console.log(dataObj);
     const sendDataObj = new FormData();
     Object.keys(dataObj).forEach((inputName) => {
       sendDataObj.append(inputName, dataObj[inputName]);
@@ -80,12 +102,16 @@ const Contact = ({ contactRef }) => {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
         setLoading(false);
         if (json.status) {
           setSubmitted(true);
         }
       });
+  };
+
+  const handleNextMsg = () => {
+    setAdditionalMsg(true);
+    setSubmitted(false);
   };
 
   // const inViewport = useIntersection(contactRef, "-15%");
@@ -94,18 +120,31 @@ const Contact = ({ contactRef }) => {
     <StyledWrapper ref={contactRef}>
       <StyledContent className="active">
         {submitted ? (
-          <H4 className={submitted ? "active" : ""}>
-            Thank you for <span>connecting!</span>
-          </H4>
+          <SuccessDiv>
+            <H4 className={submitted ? "active" : ""}>
+              Thank you for <span>connecting!</span>
+            </H4>
+            <LoadingButton
+              disableElevation
+              className="btn"
+              variant="contained"
+              onClick={handleNextMsg}
+            >
+              Send Another
+            </LoadingButton>
+          </SuccessDiv>
         ) : (
           <>
             <H4 className={inContacts ? "active" : ""}>
               Let's <span>build</span> something.
             </H4>
             <ContactForm
+              additionalMsg={additionalMsg}
               sendMessage={sendMessage}
               inViewport={inContacts}
               loading={loading}
+              formData={formData}
+              setFormData={setFormData}
             />
           </>
         )}
