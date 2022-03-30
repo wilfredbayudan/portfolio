@@ -47,7 +47,7 @@ const projectsData = [
     created: "Oct 2021",
     image: waitlistImg,
     description:
-      "View and join a virtual waitlist by integrating with a third party waitlist service and optionally collect contact tracing information. Currently used by ~20,000 customers a month.",
+      "View and join a virtual waitlist by integrating with a third party waitlist service and optionally collect contact tracing information.",
     githubLink: "https://github.com/wilfredbayudan/waitlist-frontend",
     videoEmbed: `https://player.vimeo.com/video/630541398?h=b397944b1d&amp;badge=0&amp;autopause=0&autoplay=1&amp;player_id=0&amp;app_id=58479`,
     demoUrl: "https://dev.jaybayudan.com/wwv2/102/",
@@ -91,12 +91,13 @@ const Projects = ({ projectsRef }) => {
   const [scroll, setScroll] = useState(false);
   const [viewEmbed, setViewEmbed] = useState(null);
 
-  const inViewport = useIntersection(projectsRef, "-15%");
+  const inViewport = useIntersection(projectsRef);
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (inViewport) setScroll(true);
+      if (window.scrollY > window.innerHeight - window.innerHeight / 1.25)
+        setScroll(true);
     });
-  }, [inViewport]);
+  }, []);
 
   return (
     <Wrapper ref={projectsRef}>
