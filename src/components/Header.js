@@ -13,6 +13,7 @@ import MenuBookIcon from "@mui/icons-material/MenuBook";
 import HomeIcon from "@mui/icons-material/Home";
 import EngineeringIcon from "@mui/icons-material/Engineering";
 import useIntersection from "../hooks/useIntersection";
+import EmailIcon from "@mui/icons-material/Email";
 
 const HeaderBar = styled.header`
   height: 50px;
@@ -113,7 +114,7 @@ const Full = styled.div`
   }
 `;
 
-const Header = ({ projectsRef, skillsRef, splashRef }) => {
+const Header = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
   const [showNav, setShowNav] = useState(false);
   const [currentPage, setCurrentPage] = useState("home");
 
@@ -135,18 +136,28 @@ const Header = ({ projectsRef, skillsRef, splashRef }) => {
   const scrollToSplash = () => {
     setTimeout(() => {
       splashRef.current.scrollIntoView({ behavior: "smooth" });
+      setCurrentPage("home");
     }, 1);
   };
 
   const scrollToProjects = () => {
     setTimeout(() => {
       projectsRef.current.scrollIntoView({ behavior: "smooth" });
+      setCurrentPage("projects");
     }, 1);
   };
 
   const scrollToSkills = () => {
     setTimeout(() => {
       skillsRef.current.scrollIntoView({ behavior: "smooth" });
+      setCurrentPage("skills");
+    }, 1);
+  };
+
+  const scrollToContact = () => {
+    setTimeout(() => {
+      contactRef.current.scrollIntoView({ behavior: "smooth" });
+      setCurrentPage("contact");
     }, 1);
   };
 
@@ -194,18 +205,12 @@ const Header = ({ projectsRef, skillsRef, splashRef }) => {
           </ListItemIcon>
           <ListItemText primary={"Skills"} />
         </ListItem>
-        {/* <ListItem button onClick={() => navigate("/how")}>
+        <ListItem button onClick={scrollToContact}>
           <ListItemIcon>
-            <HelpIcon />
+            <EmailIcon />
           </ListItemIcon>
-          <ListItemText primary={"How It Works"} />
+          <ListItemText primary={"Contact"} />
         </ListItem>
-        <ListItem button onClick={() => navigate("/about")}>
-          <ListItemIcon> 
-            <InfoIcon />
-          </ListItemIcon>
-          <ListItemText primary={"About Us"} />
-        </ListItem> */}
       </List>
       <Divider />
     </Box>
@@ -247,7 +252,12 @@ const Header = ({ projectsRef, skillsRef, splashRef }) => {
               Skills
             </LinkItem>
             <LinkItem>Resume</LinkItem>
-            <LinkItem>Contact</LinkItem>
+            <LinkItem
+              className={currentPage === "contact" ? "current" : ""}
+              onClick={scrollToContact}
+            >
+              Contact
+            </LinkItem>
           </Links>
         </Full>
       </Nav>
