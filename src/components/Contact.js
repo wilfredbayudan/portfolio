@@ -75,8 +75,6 @@ const SuccessDiv = styled.div`
 `;
 
 const Contact = ({ contactRef }) => {
-  const textRef = useRef();
-  const formRef = useRef();
   const [submitted, setSubmitted] = useState(false);
   const [additionalMsg, setAdditionalMsg] = useState(false);
   const [loading, setLoading] = useState(false);

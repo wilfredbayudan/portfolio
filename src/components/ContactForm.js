@@ -59,7 +59,7 @@ const ContactForm = ({
 
   return (
     <Form className={inViewport ? "active" : ""} onSubmit={handleSubmit}>
-      <Title>Contact Me</Title>
+      <Title>Contact</Title>
       <FormInput>
         <StyledTextField
           fullWidth
