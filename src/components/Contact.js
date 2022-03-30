@@ -16,17 +16,19 @@ const StyledContent = styled(Content)`
   padding: 0;
 `;
 
+const StyledWrapper = styled(Wrapper)`
+  padding-top: 0;
+  padding-bottom: 0;
+`;
+
 const H4 = styled.h4`
   text-align: center;
   margin: 60px auto 60px auto;
   padding: 0;
-  font-size: 4.5em;
+  font-size: 5em;
   color: #434343;
   min-width: 50%;
   line-height: 1em;
-  @media (min-width: 1024px) {
-    font-size: 5em;
-  }
   span {
     color: #30d1bc;
   }
@@ -39,14 +41,14 @@ const Contact = ({ contactRef }) => {
   // const inViewport = useIntersection(contactRef, "-15%");
 
   return (
-    <Wrapper ref={contactRef}>
+    <StyledWrapper ref={contactRef}>
       <StyledContent className="active">
         <H4>
           Let's <span>build</span> something.
         </H4>
         <ContactForm />
       </StyledContent>
-    </Wrapper>
+    </StyledWrapper>
   );
 };
 
