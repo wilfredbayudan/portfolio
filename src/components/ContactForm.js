@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import styled from "styled-components";
 import { Title } from "../styles/Content";
 import TextField from "@mui/material/TextField";
@@ -64,12 +63,14 @@ const ContactForm = ({
       <FormInput>
         <StyledTextField
           fullWidth
+          autoFocus={inViewport}
           name="name"
           label="Name"
           disabled={loading}
           variant="filled"
           onChange={handleChange}
           value={formData.name}
+          required
         />
       </FormInput>
       <FormInput>
@@ -81,6 +82,7 @@ const ContactForm = ({
           variant="filled"
           onChange={handleChange}
           value={formData.email}
+          required
         />
       </FormInput>
       <FormInput>
@@ -95,6 +97,7 @@ const ContactForm = ({
           onChange={handleChange}
           value={formData.message}
           autoFocus={additionalMsg}
+          required
         />
       </FormInput>
       <LoadingButton
