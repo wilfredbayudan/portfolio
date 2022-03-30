@@ -45,10 +45,13 @@ const H4 = styled.h4`
   text-align: center;
   margin: 60px 0;
   padding: 0;
-  font-size: 5em;
+  font-size: 4em;
   color: #434343;
   min-width: 50%;
   line-height: 1em;
+  @media (min-width: 768px) {
+    font-size: 5em;
+  }
   span {
     color: #30d1bc;
   }
