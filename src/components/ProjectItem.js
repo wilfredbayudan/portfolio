@@ -14,9 +14,9 @@ import Tooltip from "@mui/material/Tooltip";
 import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
 import LinkIcon from "@mui/icons-material/Link";
 import Chip from "@mui/material/Chip";
-import Stack from "@mui/material/Stack";
 import { useDispatch } from "react-redux";
-import { setStatus, setMessage } from "../features/loaderSlice";
+// import { setStatus, setMessage } from "../features/loaderSlice";
+import { setData } from "../features/noticeSlice";
 import useIntersection from "../hooks/useIntersection";
 
 const StyledIconButton = styled(IconButton)`
@@ -24,27 +24,6 @@ const StyledIconButton = styled(IconButton)`
     color: #00ceb3;
   }
 `;
-
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
-
-// const CardWrapper = styledComponent.div`
-//   width: 100%;
-//   @media (min-width: 768px) {
-//     width: 49%;
-//   }
-//   @media (min-width: 1400px) {
-//     width: 24%;
-//   }
-// `;
 
 const StyledCard = styledComponent(Card)`
   width: 100%;
@@ -61,13 +40,18 @@ const StyledCard = styledComponent(Card)`
 
 const ProjectItem = ({ project, setViewEmbed }) => {
   const ref = useRef();
-
   const inViewport = useIntersection(ref, "-5%");
 
   const dispatch = useDispatch();
 
   const handleDemoClick = () => {
-    window.open(project.demoUrl);
+    if (!project.notice) return window.open(project.demoUrl);
+    dispatch(
+      setData({
+        notice: project.notice,
+        url: project.demoUrl,
+      })
+    );
   };
 
   const handleGithubClick = () => {

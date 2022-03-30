@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Wrapper, Content, Title } from "../styles/Content";
 import Skill from "./Skill";

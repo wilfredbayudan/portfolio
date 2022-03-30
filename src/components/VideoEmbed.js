@@ -1,6 +1,5 @@
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
 const VideoEmbed = ({ viewEmbed, setViewEmbed }) => {
@@ -24,6 +23,7 @@ const VideoEmbed = ({ viewEmbed, setViewEmbed }) => {
       <DialogTitle id="alert-dialog-title">{name}</DialogTitle>
       <DialogContent>
         <iframe
+          title={name}
           src={videoEmbed}
           width="100%"
           height="520"
