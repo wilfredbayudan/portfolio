@@ -58,7 +58,7 @@ const SkillIcon = styled.i``;
 const Skill = ({ skill: { label, icon } }) => {
   const ref = useRef();
 
-  const inViewport = useIntersection(ref, "-5%");
+  const inViewport = useIntersection(ref, "-15%");
 
   return (
     <SkillContainer ref={ref} className={inViewport ? "active" : ""}>
