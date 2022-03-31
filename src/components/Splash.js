@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import SplashBackground from "../assets/images/splash.jpg";
+import LoadingButton from "@mui/lab/LoadingButton";
+import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 
 const Header = styled.div`
   height: 100vh;
@@ -61,6 +63,22 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 0;
+  .btn {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    padding-left: 20px;
+    padding-right: 20px;
+    svg {
+      color: #61ebf5;
+    }
+  }
+  .btn:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+    svg {
+      color: #ade9ed;
+    }
+  }
   div {
     opacity: 0;
     transform: scale(1, 0);
@@ -199,6 +217,9 @@ const Splash = ({ splashRef }) => {
           <br />
           {/* <button onClick={() => { setDarkMode(!darkMode)}}>Toggle Dark Mode</button> */}
         </Content>
+        <LoadingButton startIcon={<ArrowCircleDownIcon />} className="btn">
+          VIEW PROJECTS
+        </LoadingButton>
       </Wrapper>
       <div id="bg-cover" className={darkMode ? "dark" : ""}></div>
       <div id="bg-image"></div>
