@@ -1,13 +1,11 @@
 import React, { useRef } from "react";
-import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import styledComponent from "styled-components";
+import styled from "styled-components";
 // import PlaceHolder from "../assets/images/splash.jpg";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Tooltip from "@mui/material/Tooltip";
@@ -18,14 +16,9 @@ import { useDispatch } from "react-redux";
 // import { setStatus, setMessage } from "../features/loaderSlice";
 import { setData } from "../features/noticeSlice";
 import useIntersection from "../hooks/useIntersection";
+import { StyledIconButton } from "../styles/Content";
 
-const StyledIconButton = styled(IconButton)`
-  &:hover {
-    color: #00ceb3;
-  }
-`;
-
-const StyledCard = styledComponent(Card)`
+const StyledCard = styled(Card)`
   width: 100%;
   @media (min-width: 768px) {
     width: 49%;

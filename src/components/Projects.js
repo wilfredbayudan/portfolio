@@ -47,7 +47,7 @@ const projectsData = [
     created: "Oct 2021",
     image: waitlistImg,
     description:
-      "View and join a virtual waitlist by integrating with a third party waitlist service and optionally collect contact tracing information.",
+      "View and join a virtual waitlist by integrating with a third party waitlist API. Optionally collect and store contact tracing information in a separate database. Currently used by ~20,000 customers a month.",
     githubLink: "https://github.com/wilfredbayudan/waitlist-frontend",
     videoEmbed: `https://player.vimeo.com/video/630541398?h=b397944b1d&amp;badge=0&amp;autopause=0&autoplay=1&amp;player_id=0&amp;app_id=58479`,
     demoUrl: "https://dev.jaybayudan.com/wwv2/102/",
@@ -65,7 +65,7 @@ const projectsData = [
     videoEmbed: `https://player.vimeo.com/video/630462554?h=e758ee9c83&amp;badge=0&amp;autopause=0&autoplay=1&amp;player_id=0&amp;app_id=58479"`,
     demoUrl: "https://dev.jaybayudan.com/fis/phase1v2",
     notice: null,
-    stack: ["HTML", "CSS", "Vanilla JavaScript"],
+    stack: ["HTML", "CSS", "JavaScript"],
   },
 ];
 

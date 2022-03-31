@@ -57,6 +57,10 @@ const Header = styled.div`
 
 const Wrapper = styled.div`
   max-width: 2600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   div {
     opacity: 0;
     transform: scale(1, 0);

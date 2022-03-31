@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import IconButton from "@mui/material/IconButton";
 
 export const Wrapper = styled.div`
   /* background-color: #22272e; */
@@ -46,4 +47,10 @@ export const Title = styled.h2`
   margin-top: 10px;
   margin-bottom: 20px;
   border-bottom: 4px solid #9d9d9d;
+`;
+
+export const StyledIconButton = styled(IconButton)`
+  &:hover {
+    color: #00ceb3;
+  }
 `;
