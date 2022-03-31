@@ -42,12 +42,20 @@ const Footer = () => {
       <Copyright>Copyright&copy; 2022 Wilfred Bayudan</Copyright>
       <Socials>
         <Tooltip title="GitHub" arrow>
-          <StyledIconButton>
+          <StyledIconButton
+            onClick={() => window.open("https://github.com/wilfredbayudan")}
+          >
             <GitHubIcon />
           </StyledIconButton>
         </Tooltip>
         <Tooltip title="LinkedIn" arrow>
-          <StyledIconButton>
+          <StyledIconButton
+            onClick={() =>
+              window.open(
+                "https://www.linkedin.com/in/wilfred-bayudan-3b5044224/"
+              )
+            }
+          >
             <LinkedInIcon />
           </StyledIconButton>
         </Tooltip>
