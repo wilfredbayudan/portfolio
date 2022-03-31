@@ -30,6 +30,25 @@ const HeaderBar = styled.header`
 const Nav = styled.nav`
   max-width: 2600px;
   margin: 0 auto;
+  transition: all 1s ease-in-out;
+  div#full {
+    display: none;
+    @media (min-width: 768px) {
+      display: block;
+      height: 60px;
+      background-color: #ffffff;
+      transition: all 1s ease-in-out;
+      padding: 5px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  div#full.dark {
+    background-color: #000000;
+  }
 `;
 
 const NavIcon = styled(MenuIcon)`
@@ -85,6 +104,10 @@ const Links = styled.ul`
     font-weight: 400;
     border-bottom: 3px solid #30d1bc;
   }
+
+  .theme {
+    margin: 0;
+  }
 `;
 
 const LinkItem = styled.li`
@@ -95,20 +118,7 @@ const LinkItem = styled.li`
   /* text-transform: uppercase; */
 `;
 
-const Full = styled.div`
-  display: none;
-  @media (min-width: 768px) {
-    display: block;
-    height: 60px;
-    padding: 5px;
-    background-color: rgba(255, 255, 255, 1);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-`;
+const Full = styled.div``;
 
 const Header = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
   const [showNav, setShowNav] = useState(false);
@@ -215,7 +225,7 @@ const Header = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
             {list()}
           </SwipeableDrawer>
         </Mobile>
-        <Full>
+        <Full id="full" className={theme === "dark" ? "dark" : ""}>
           <Logo src={LogoImg} alt="WB Logo" />
           <Links>
             <LinkItem
@@ -236,16 +246,16 @@ const Header = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
             >
               Skills
             </LinkItem>
-            <LinkItem>Resume</LinkItem>
+            {/* <LinkItem>Resume</LinkItem> */}
             <LinkItem
               className={currentPage === "contact" ? "current" : ""}
               onClick={() => scrollToRef(contactRef, "contact")}
             >
               Contact
             </LinkItem>
-            <LinkItem onClick={toggleTheme}>
+            {/* <LinkItem onClick={toggleTheme} className="theme">
               {theme === "light" ? <DarkModeIcon /> : <LightModeIcon />}
-            </LinkItem>
+            </LinkItem> */}
           </Links>
         </Full>
       </Nav>
