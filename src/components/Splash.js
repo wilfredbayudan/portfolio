@@ -72,6 +72,11 @@ const Wrapper = styled.div`
     svg {
       color: #61ebf5;
     }
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+  }
+  .btn.active {
+    opacity: 1;
   }
   .btn:hover {
     background-color: rgba(0, 0, 0, 0.4);
@@ -226,7 +231,7 @@ const Splash = ({ splashRef, projectsRef }) => {
         <LoadingButton
           onClick={handleViewProjectsClick}
           startIcon={<ArrowCircleDownIcon />}
-          className="btn"
+          className={darkMode ? "btn active" : "btn"}
         >
           VIEW PROJECTS
         </LoadingButton>
