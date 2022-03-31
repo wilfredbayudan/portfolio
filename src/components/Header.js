@@ -153,8 +153,6 @@ const Header = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
     setTimeout(() => {
       ref.current.scrollIntoView({
         behavior: "smooth",
-        block: "start",
-        inline: "nearest",
       });
       setTimeout(() => setCurrentPage(label), 500);
     }, 1);

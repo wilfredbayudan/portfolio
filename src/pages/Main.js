@@ -7,7 +7,7 @@ import Contact from "../components/Contact";
 const Main = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
   return (
     <div>
-      <Splash splashRef={splashRef} />
+      <Splash splashRef={splashRef} projectsRef={projectsRef} />
       <Projects projectsRef={projectsRef} />
       <Skills skillsRef={skillsRef} />
       <Contact contactRef={contactRef} />

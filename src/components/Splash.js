@@ -168,7 +168,7 @@ const Content = styled.div`
   }
 `;
 
-const Splash = ({ splashRef }) => {
+const Splash = ({ splashRef, projectsRef }) => {
   const [showContent, setShowContent] = useState(false);
   const [showTitle, setShowTitle] = useState(false);
   const [showSlogan, setShowSlogan] = useState(false);
@@ -187,6 +187,12 @@ const Splash = ({ splashRef }) => {
       clearTimeout(darkModeTimeout);
     };
   }, []);
+
+  const handleViewProjectsClick = () => {
+    projectsRef.current.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
 
   return (
     <Header ref={splashRef}>
@@ -217,7 +223,11 @@ const Splash = ({ splashRef }) => {
           <br />
           {/* <button onClick={() => { setDarkMode(!darkMode)}}>Toggle Dark Mode</button> */}
         </Content>
-        <LoadingButton startIcon={<ArrowCircleDownIcon />} className="btn">
+        <LoadingButton
+          onClick={handleViewProjectsClick}
+          startIcon={<ArrowCircleDownIcon />}
+          className="btn"
+        >
           VIEW PROJECTS
         </LoadingButton>
       </Wrapper>
