@@ -9,8 +9,10 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import styled from "styled-components";
-import LoginIcon from "@mui/icons-material/Login";
-import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
+import HomeIcon from "@mui/icons-material/Home";
+import EngineeringIcon from "@mui/icons-material/Engineering";
+import EmailIcon from "@mui/icons-material/Email";
+import { useNavigate } from "react-router-dom";
 
 const NavIcon = styled(MenuIcon)`
   cursor: pointer;
@@ -23,8 +25,15 @@ const NavContainer = styled.div`
   }
 `;
 
-const MobileNav = () => {
+const MobileNav = ({
+  scrollToRef,
+  splashRef,
+  projectsRef,
+  skillsRef,
+  contactRef,
+}) => {
   const [showNav, setShowNav] = useState(false);
+  const navigate = useNavigate();
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -46,28 +55,44 @@ const MobileNav = () => {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        <ListItem button>
+        {/* <ListItem button onClick={() => navigate("/")}>
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Home"} />
+        </ListItem> */}
+        <ListItem
+          button
+          onClick={() => {
+            navigate("/");
+            scrollToRef(splashRef, "home");
+          }}
+        >
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Home"} />
+        </ListItem>
+        <ListItem button onClick={() => scrollToRef(projectsRef, "projects")}>
           <ListItemIcon>
             <MenuBookIcon />
           </ListItemIcon>
-          <ListItemText primary={"Browse Businesses"} />
+          <ListItemText primary={"Projects"} />
+        </ListItem>
+        <ListItem button onClick={() => scrollToRef(skillsRef, "skills")}>
+          <ListItemIcon>
+            <EngineeringIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Skills"} />
+        </ListItem>
+        <ListItem button onClick={() => scrollToRef(contactRef, "contact")}>
+          <ListItemIcon>
+            <EmailIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Contact"} />
         </ListItem>
       </List>
       <Divider />
-      <List>
-        <ListItem button>
-          <ListItemIcon>
-            <LoginIcon />
-          </ListItemIcon>
-          <ListItemText primary={"Log in"} />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <AppRegistrationIcon />
-          </ListItemIcon>
-          <ListItemText primary={"Sign up"} />
-        </ListItem>
-      </List>
     </Box>
   );
 

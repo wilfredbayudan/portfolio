@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 const SampleDiv = styled.div`
   flex: 1 0 auto;
   @media (min-width: 768px) {
-    padding-top: 60px;
+    padding-top: 80px;
   }
 `;
 

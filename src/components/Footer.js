@@ -14,8 +14,8 @@ const StyledFooter = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  bottom: 50px;
+  /* position: relative;
+  bottom: 50px; */
   padding: 0 20px;
 
   @media (min-width: 768px) {

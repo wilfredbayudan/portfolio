@@ -5,11 +5,13 @@ export const Wrapper = styled.div`
   /* background-color: #22272e; */
   padding: 20px;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  @media (min-width: 1152px) {
+  /* display: flex;
+  align-items: center; */
+  @media (min-width: 1200px) {
     padding: 40px;
-    max-height: 1300px;
+    max-height: 1000px;
+    display: flex;
+    align-items: center;
   }
   section {
     opacity: 0;
