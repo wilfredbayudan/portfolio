@@ -117,7 +117,7 @@ const ContactBtn = styled.button`
   ${(props) =>
     props.selected &&
     css`
-      background-color: #24dac2;
+      background-color: #45eed8;
     `}
 `;
 
@@ -145,15 +145,13 @@ const Header = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
     }
   };
 
-  console.log(theme);
-
   useEffect(() => {
     if (inSplash) setCurrentPage("home");
     if (inProjects) setCurrentPage("projects");
     if (inSkills) setCurrentPage("skills");
     if (inContact) setCurrentPage("contact");
     if (location.pathname === "/resume") setCurrentPage("resume");
-  }, [inProjects, inSkills, inSplash, inContact]);
+  }, [inProjects, inSkills, inSplash, inContact, location.pathname]);
 
   const scrollToRef = (ref, label) => {
     setCurrentPage(label);

@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
 
   /* display: flex;
   align-items: center; */
-  @media (min-width: 1200px) {
+  @media (min-width: 1400px) {
     padding: 40px;
     min-height: 100vh;
     max-height: 1000px;

@@ -27,6 +27,7 @@ const Copyright = styled.div`
   display: none;
   @media (min-width: 768px) {
     display: block;
+    font-size: 0.8em;
   }
 `;
 
