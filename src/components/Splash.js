@@ -232,6 +232,7 @@ const Splash = ({ splashRef, projectsRef }) => {
           onClick={handleViewProjectsClick}
           startIcon={<ArrowCircleDownIcon />}
           className={darkMode ? "btn active" : "btn"}
+          style={{ position: "relative", top: "100px" }}
         >
           VIEW PROJECTS
         </LoadingButton>

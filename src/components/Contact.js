@@ -96,7 +96,7 @@ const Contact = ({ contactRef }) => {
       sendDataObj.append(inputName, dataObj[inputName]);
     });
     setLoading(true);
-    fetch("https://wbayudan.com/api/contact.php", {
+    fetch("https://jaybayudan.com/api/contact.php", {
       method: "POST",
       body: sendDataObj,
     })

@@ -25,6 +25,8 @@ const NavBar = styled.nav`
   justify-content: space-between;
   @media (min-width: 768px) {
     height: 80px;
+    max-width: 2600px;
+    margin: 0 auto;
   }
 `;
 

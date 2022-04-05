@@ -6,7 +6,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 
 const Form = styled.form`
   width: 100%;
-  padding: 5px 0 20px 0;
+  padding: 5px 10px 20px 10px;
   @media (min-width: 768px) {
     padding: 40px;
     border-left: 6px solid #ececec;

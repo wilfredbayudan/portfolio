@@ -3,12 +3,13 @@ import IconButton from "@mui/material/IconButton";
 
 export const Wrapper = styled.div`
   /* background-color: #22272e; */
-  padding: 20px;
-  min-height: 100vh;
+  padding: 40px 0;
+
   /* display: flex;
   align-items: center; */
   @media (min-width: 1200px) {
     padding: 40px;
+    min-height: 100vh;
     max-height: 1000px;
     display: flex;
     align-items: center;
