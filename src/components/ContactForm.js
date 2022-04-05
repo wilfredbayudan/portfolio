@@ -4,6 +4,13 @@ import { Title } from "../styles/Content";
 import TextField from "@mui/material/TextField";
 import LoadingButton from "@mui/lab/LoadingButton";
 
+const ContactTitle = styled(Title)`
+  display: none;
+  @media (min-width: 768px) {
+    display: block;
+  }
+`;
+
 const Form = styled.form`
   width: 100%;
   padding: 5px 15px 20px 15px;
@@ -59,7 +66,7 @@ const ContactForm = ({
 
   return (
     <Form className={inViewport ? "active" : ""} onSubmit={handleSubmit}>
-      <Title>Contact</Title>
+      <ContactTitle>Contact</ContactTitle>
       <FormInput>
         <StyledTextField
           fullWidth
