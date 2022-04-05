@@ -24,7 +24,7 @@ const projectsData = [
     notice:
       "This app is hosted on Heroku and may take a few moments to load. Demo account credentials are provided on  the login page.",
     herokuCheck: "https://menu-vue.herokuapp.com/businesses",
-    stack: ["React", "Ruby", "Rails", "PostgreSQL"],
+    stack: ["React", "Redux", "Ruby", "Rails", "PostgreSQL"],
   },
   {
     id: 2,

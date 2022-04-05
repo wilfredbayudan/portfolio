@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Wrapper, Content } from "../styles/Content";
 import useIntersection from "../hooks/useIntersection";
@@ -80,6 +80,7 @@ const SuccessDiv = styled.div`
 
 const Contact = ({ contactRef }) => {
   const [submitted, setSubmitted] = useState(false);
+  const [showSubmitted, setShowSubmitted] = useState(false);
   const [additionalMsg, setAdditionalMsg] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -96,7 +97,7 @@ const Contact = ({ contactRef }) => {
       sendDataObj.append(inputName, dataObj[inputName]);
     });
     setLoading(true);
-    fetch("https://wbayudan.com/api/contact.php", {
+    fetch("https://jaybayudan.com/api/contact.php", {
       method: "POST",
       body: sendDataObj,
     })
@@ -108,6 +109,14 @@ const Contact = ({ contactRef }) => {
         }
       });
   };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowSubmitted(true);
+    }, 10);
+
+    return () => clearTimeout(timeout);
+  });
 
   const handleNextMsg = () => {
     setAdditionalMsg(true);
@@ -121,7 +130,7 @@ const Contact = ({ contactRef }) => {
       <StyledContent className="active">
         {submitted ? (
           <SuccessDiv>
-            <H4 className={submitted ? "active" : ""}>
+            <H4 className={showSubmitted ? "active" : ""}>
               Thank you for <span>connecting!</span>
             </H4>
             <LoadingButton

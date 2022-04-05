@@ -64,7 +64,7 @@ const ProjectItem = ({ project, setViewEmbed }) => {
       <CardHeader title={project.name} subheader={project.created} />
       <CardMedia
         component="img"
-        height="250"
+        height="220"
         image={project.image}
         alt="Paella dish"
       />
