@@ -66,7 +66,7 @@ const ProjectItem = ({ project, setViewEmbed }) => {
         component="img"
         height="220"
         image={project.image}
-        alt="Paella dish"
+        alt={project.name}
       />
       <CardContent sx={{ flex: "1 0 auto" }}>
         <Typography variant="body2" color="text.secondary">
