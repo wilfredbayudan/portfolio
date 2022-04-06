@@ -15,12 +15,13 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-export default function ResumeDialog() {
+export default function ResumeDialog({ contactRef }) {
   const dispatch = useDispatch();
   const resumeDisplay = useSelector((state) => state.resume.display);
 
   const handleClose = () => {
     dispatch(setDisplay(false));
+    contactRef.current.scrollIntoView();
   };
 
   return (

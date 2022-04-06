@@ -37,7 +37,7 @@ const App = () => {
         skillsRef={skillsRef}
         contactRef={contactRef}
       />
-      <ResumeDialog />
+      <ResumeDialog contactRef={contactRef} />
       <LoaderOverlay />
       <Wrapper>
         <Routes>
