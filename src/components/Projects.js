@@ -8,7 +8,7 @@ import waitlistImg from "../assets/images/waitlist.png";
 import iWanderImg from "../assets/images/iwander.png";
 import { Wrapper, Content, Title } from "../styles/Content";
 import ProjectNotice from "./ProjectNotice";
-import useIntersection from "../hooks/useIntersection";
+// import useIntersection from "../hooks/useIntersection";
 
 const projectsData = [
   {
@@ -91,7 +91,7 @@ const Projects = ({ projectsRef }) => {
   const [scroll, setScroll] = useState(false);
   const [viewEmbed, setViewEmbed] = useState(null);
 
-  const inViewport = useIntersection(projectsRef);
+  // const inViewport = useIntersection(projectsRef);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > window.innerHeight - window.innerHeight / 1.25)

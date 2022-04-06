@@ -12,6 +12,7 @@ import styled from "styled-components";
 import HomeIcon from "@mui/icons-material/Home";
 import EngineeringIcon from "@mui/icons-material/Engineering";
 import EmailIcon from "@mui/icons-material/Email";
+import ArticleIcon from "@mui/icons-material/Article";
 import { useNavigate } from "react-router-dom";
 
 const NavIcon = styled(MenuIcon)`
@@ -31,6 +32,7 @@ const MobileNav = ({
   projectsRef,
   skillsRef,
   contactRef,
+  handleResumeClick,
 }) => {
   const [showNav, setShowNav] = useState(false);
   const navigate = useNavigate();
@@ -84,6 +86,12 @@ const MobileNav = ({
             <EngineeringIcon />
           </ListItemIcon>
           <ListItemText primary={"Skills"} />
+        </ListItem>
+        <ListItem button onClick={handleResumeClick}>
+          <ListItemIcon>
+            <ArticleIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Resume"} />
         </ListItem>
         <ListItem button onClick={() => scrollToRef(contactRef, "contact")}>
           <ListItemIcon>

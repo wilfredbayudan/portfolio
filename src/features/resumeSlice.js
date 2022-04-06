@@ -1,20 +1,20 @@
-export function setTheme(style) {
+export function setDisplay(boolean) {
   return {
-    type: "theme/setTheme",
-    payload: style,
+    type: "resume/setDisplay",
+    payload: boolean,
   };
 }
 
 const initialState = {
-  style: "light",
+  display: false,
 };
 
-export default function themeSlice(state = initialState, action) {
+export default function resumeReducer(state = initialState, action) {
   switch (action.type) {
-    case "theme/setTheme":
+    case "resume/setDisplay":
       return {
         ...state,
-        style: action.payload,
+        display: action.payload,
       };
     default:
       return state;

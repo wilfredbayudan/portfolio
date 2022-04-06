@@ -3,10 +3,11 @@ import styled, { css } from "styled-components";
 import Logo from "../assets/images/logo.png";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import MobileNav from "./MobileNav";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import useIntersection from "../hooks/useIntersection";
-import { setTheme } from "../features/themeSlice";
+// import { setTheme } from "../features/themeSlice";
 import { useNavigate, useLocation } from "react-router-dom";
+import { setDisplay } from "../features/resumeSlice";
 
 const HeaderWrapper = styled.header`
   position: fixed;
@@ -133,17 +134,17 @@ const Header = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
   const inSkills = useIntersection(skillsRef, "-15%");
   const inContact = useIntersection(contactRef, "-15%");
 
-  const theme = useSelector((state) => state.theme.style);
+  // const theme = useSelector((state) => state.theme.style);
 
   const location = useLocation();
 
-  const toggleTheme = () => {
-    if (theme === "light") {
-      dispatch(setTheme("dark"));
-    } else {
-      dispatch(setTheme("light"));
-    }
-  };
+  // const toggleTheme = () => {
+  //   if (theme === "light") {
+  //     dispatch(setTheme("dark"));
+  //   } else {
+  //     dispatch(setTheme("light"));
+  //   }
+  // };
 
   useEffect(() => {
     if (inSplash) setCurrentPage("home");
@@ -160,6 +161,10 @@ const Header = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
         behavior: "smooth",
       });
     }, 1);
+  };
+
+  const handleResumeClick = () => {
+    dispatch(setDisplay(true));
   };
 
   return (
@@ -200,10 +205,7 @@ const Header = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
             </Link>
             <Link
               className={currentPage === "resume" ? "current" : ""}
-              onClick={() => {
-                setCurrentPage("resume");
-                navigate("/resume");
-              }}
+              onClick={handleResumeClick}
             >
               Resume
             </Link>
@@ -226,6 +228,7 @@ const Header = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
             projectsRef={projectsRef}
             skillsRef={skillsRef}
             contactRef={contactRef}
+            handleResumeClick={handleResumeClick}
           />
         </NavLinks>
       </NavBar>
