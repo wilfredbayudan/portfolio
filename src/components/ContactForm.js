@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import { Title } from "../styles/Content";
 import TextField from "@mui/material/TextField";
 import LoadingButton from "@mui/lab/LoadingButton";
+import { useSelector } from "react-redux";
 
 const ContactTitle = styled(Title)`
   display: none;
@@ -48,6 +49,8 @@ const ContactForm = ({
   setFormData,
   additionalMsg,
 }) => {
+  const nameRef = useRef();
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -64,13 +67,37 @@ const ContactForm = ({
     sendMessage(formData);
   };
 
+  const resumeDisplay = useSelector((state) => state.resume.display);
+
+  const [viewed, setViewed] = useState(false);
+  const [focus, setFocus] = useState(false);
+
+  useEffect(() => {
+    if (resumeDisplay) {
+      setViewed(true);
+    }
+  }, [resumeDisplay]);
+
+  const viewedClosed = !resumeDisplay && viewed;
+
+  useEffect(() => {
+    let timeout;
+    if (viewedClosed) {
+      timeout = setTimeout(() => {
+        console.log("FOCUS!");
+        nameRef.current.focus();
+      }, 1500);
+    }
+    return () => clearTimeout(timeout);
+  }, [viewedClosed]);
+
   return (
     <Form className={inViewport ? "active" : ""} onSubmit={handleSubmit}>
       <ContactTitle>Contact</ContactTitle>
       <FormInput>
         <StyledTextField
           fullWidth
-          autoFocus={inViewport}
+          inputRef={nameRef}
           name="name"
           label="Name"
           disabled={loading}
