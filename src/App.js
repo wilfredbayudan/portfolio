@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import styled from "styled-components";
 import Main from "./pages/Main";
 import LoaderOverlay from "./components/LoaderOverlay";
+import ResumeDialog from "./components/ResumeDialog";
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -15,12 +16,12 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const SampleDiv = styled.div`
-  flex: 1 0 auto;
-  @media (min-width: 768px) {
-    padding-top: 80px;
-  }
-`;
+// const SampleDiv = styled.div`
+//   flex: 1 0 auto;
+//   @media (min-width: 768px) {
+//     padding-top: 80px;
+//   }
+// `;
 
 const App = () => {
   const projectsRef = useRef();
@@ -36,6 +37,7 @@ const App = () => {
         skillsRef={skillsRef}
         contactRef={contactRef}
       />
+      <ResumeDialog />
       <LoaderOverlay />
       <Wrapper>
         <Routes>
@@ -50,7 +52,7 @@ const App = () => {
               />
             }
           />
-          <Route path="resume" element={<SampleDiv>Resume</SampleDiv>} />
+          {/* <Route path="resume" element={<SampleDiv>Resume</SampleDiv>} /> */}
           <Route path="*" element={<>404</>} />
         </Routes>
         <Footer />
