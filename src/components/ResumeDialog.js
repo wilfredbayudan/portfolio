@@ -10,6 +10,20 @@ import Slide from "@mui/material/Slide";
 import DialogContent from "@mui/material/DialogContent";
 import { useSelector, useDispatch } from "react-redux";
 import { setDisplay } from "../features/resumeSlice";
+import styled from "styled-components";
+import ResumeView from "./ResumeView";
+
+const DownloadBtn = styled(Button)`
+  &:hover {
+    color: #45eed8;
+  }
+`;
+
+const StyledIconBtn = styled(IconButton)`
+  &:hover {
+    color: #45eed8;
+  }
+`;
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
@@ -33,23 +47,23 @@ export default function ResumeDialog({ contactRef }) {
     >
       <AppBar sx={{ position: "relative", backgroundColor: "#22272e" }}>
         <Toolbar>
-          <IconButton
+          <StyledIconBtn
             edge="start"
             color="inherit"
             onClick={handleClose}
             aria-label="close"
           >
             <CloseIcon />
-          </IconButton>
+          </StyledIconBtn>
           <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-            Resume
+            Wilfred Bayudan - Resume
           </Typography>
-          <Button autoFocus color="inherit" onClick={handleClose}>
-            Download PDF
-          </Button>
+          <DownloadBtn color="inherit" onClick={handleClose}>
+            Close
+          </DownloadBtn>
         </Toolbar>
       </AppBar>
-      <DialogContent>RESUME</DialogContent>
+      <ResumeView />
     </Dialog>
   );
 }
