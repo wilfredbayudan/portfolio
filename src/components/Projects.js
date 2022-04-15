@@ -88,16 +88,16 @@ const ProjectContainer = styled.div`
 `;
 
 const Projects = ({ projectsRef }) => {
-  const [scroll, setScroll] = useState(false);
+  const [scroll, setScroll] = useState(true);
   const [viewEmbed, setViewEmbed] = useState(null);
 
   // const inViewport = useIntersection(projectsRef);
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > window.innerHeight - window.innerHeight / 1.25)
-        setScroll(true);
-    });
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", () => {
+  //     if (window.scrollY > window.innerHeight - window.innerHeight / 1.25)
+  //       setScroll(true);
+  //   });
+  // }, []);
 
   return (
     <Wrapper ref={projectsRef}>
