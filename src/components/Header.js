@@ -33,6 +33,7 @@ const NavBar = styled.nav`
 
 const LogoContainer = styled.div`
   display: flex;
+  cursor: pointer;
   align-items: center;
   height: 100%;
   gap: 5px;
@@ -124,7 +125,9 @@ const ContactBtn = styled.button`
 
 const StyledMailIcon = styled(MailOutlineIcon)``;
 
-const Header = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
+const Header = ({
+  refsObject: { projectsRef, skillsRef, splashRef, contactRef },
+}) => {
   const [currentPage, setCurrentPage] = useState("home");
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -170,7 +173,7 @@ const Header = ({ projectsRef, skillsRef, splashRef, contactRef }) => {
   return (
     <HeaderWrapper>
       <NavBar>
-        <LogoContainer>
+        <LogoContainer onClick={() => scrollToRef(splashRef, "home")}>
           <img src={Logo} alt="Wilfred Bayudan" />
           <span>AYUDAN</span>
         </LogoContainer>

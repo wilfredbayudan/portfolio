@@ -29,29 +29,21 @@ const App = () => {
   const splashRef = useRef();
   const contactRef = useRef();
 
+  const refsObject = {
+    projectsRef,
+    skillsRef,
+    splashRef,
+    contactRef,
+  };
+
   return (
     <BrowserRouter>
-      <Header
-        splashRef={splashRef}
-        projectsRef={projectsRef}
-        skillsRef={skillsRef}
-        contactRef={contactRef}
-      />
+      <Header refsObject={refsObject} />
       <ResumeDialog contactRef={contactRef} />
       <LoaderOverlay />
       <Wrapper>
         <Routes>
-          <Route
-            index
-            element={
-              <Main
-                splashRef={splashRef}
-                projectsRef={projectsRef}
-                skillsRef={skillsRef}
-                contactRef={contactRef}
-              />
-            }
-          />
+          <Route index element={<Main refsObject={refsObject} />} />
           {/* <Route path="resume" element={<SampleDiv>Resume</SampleDiv>} /> */}
           <Route path="*" element={<>404</>} />
         </Routes>
